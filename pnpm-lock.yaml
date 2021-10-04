@@ -2,9 +2,11 @@ lockfileVersion: 5.3
 
 specifiers:
   discord.js: ^13.1.0
+  dotenv: ^10.0.0
 
 dependencies:
   discord.js: 13.1.0
+  dotenv: 10.0.0
 
 packages:
 
@@ -101,6 +103,11 @@ packages:
     engines: {node: '>=10'}
     dependencies:
       is-obj: 2.0.0
+    dev: false
+
+  /dotenv/10.0.0:
+    resolution: {integrity: sha512-rlBi9d8jpv9Sf1klPjNfFAuWDjKLwTIJJ/VxtoTwIR6hnZxcEOQCZg2oIL3MWBYw5GpUDKOEnND7LXTbIpQ03Q==}
+    engines: {node: '>=10'}
     dev: false
 
   /is-obj/2.0.0:
