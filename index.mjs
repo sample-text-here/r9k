@@ -49,11 +49,13 @@ client.on("ready", () => {
 });
 
 client.on("messageCreate", async (msg) => {
-	// ignore system messages (no content)
+	// ignore system messages
 	if(msg.system) return;
+
+	// require all messages to have content
+	// (too lazy to hash images)
 	if(!msg.content) {
-		// if there are attachments, its not a sys
-		if(msg.attachments.size) await msg.delete();
+		await msg.delete();
 		return;
 	}
 
@@ -88,6 +90,7 @@ client.on("messageCreate", async (msg) => {
 			const chan = await msg.author.createDM();
 			await chan?.send(welcomeMsg);
 			welcomes.add(msg.author.id);
+			updateWelcomes();
 		}
 
 		return;
@@ -108,7 +111,7 @@ function updateMutes() {
 }
 
 function updateWelcomes() {
-	fs.writeFileSync(welcomeDb, [...welcome].join("\x00"));
+	fs.writeFileSync(welcomeDb, [...welcomes].join("\x00"));
 }
 
 async function getBefore(msg) {
