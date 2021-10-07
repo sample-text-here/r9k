@@ -15,7 +15,7 @@ const messages = new Set(fs.readFileSync(messageDb, "utf8").split("\x00"));
 const welcomeDb = "welcomes.txt";
 if(!fs.existsSync(welcomeDb)) fs.writeFileSync(welcomeDb, "");
 const welcomes = new Set(fs.readFileSync(welcomeDb, "utf8").split("\x00"));
-const welcomeMsg = "warning: do not send the same message twice. you will be muted.";
+const welcomeMsg = "do not send the same message twice. and **read the pins**.";
 
 // init mutes
 const muteDb = "mutes.txt";
